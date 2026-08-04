@@ -1,1 +1,1 @@
-const r=require('express').Router(), c=require('../controllers/taskController'); r.get('/',c.list); r.post('/:id/complete',c.complete); module.exports=r;
+const r=require('express').Router(), c=require('../controllers/taskController'),auth=require('../middleware/auth'); r.get('/',auth,c.list); r.get('/orders',auth,c.orders); r.post('/orders',auth,c.createOrder); module.exports=r;

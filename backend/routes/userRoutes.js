@@ -1,1 +1,1 @@
-const r=require('express').Router(), c=require('../controllers/userController'), auth=require('../middleware/auth'); r.get('/profile',auth,c.profile); module.exports=r;
+const r=require('express').Router(), c=require('../controllers/userController'), auth=require('../middleware/auth'); r.use(auth); r.get('/profile',c.profile); r.get('/notifications',c.notifications); module.exports=r;

@@ -1,1 +1,1 @@
-const r=require('express').Router(), c=require('../controllers/adminController'), admin=require('../middleware/adminAuth'); r.get('/overview',admin,c.overview); module.exports=r;
+const r=require('express').Router(), c=require('../controllers/adminController'), admin=require('../middleware/adminAuth'),auth=require('../middleware/auth'); r.use(auth,admin); r.get('/overview',c.overview); r.get('/users',c.users); r.patch('/users/:id',c.updateUser); r.get('/analytics/registrations',c.analytics); module.exports=r;

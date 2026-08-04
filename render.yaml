@@ -22,7 +22,7 @@ services:
           name: nova-lift-audit-db
           property: connectionString
       - key: DB_SSL
-        value: "true"
+        value: "false"
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ORIGINS

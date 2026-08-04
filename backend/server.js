@@ -1,0 +1,14 @@
+require('dotenv').config();
+const crypto = require('crypto');
+const express = require('express'); const cors = require('cors'); const helmet = require('helmet');
+const permittedOrigins = (process.env.CORS_ORIGINS || '').split(',').map(value => value.trim()).filter(Boolean);
+const app = express(); app.use(helmet()); app.use(cors({ origin: permittedOrigins.length ? permittedOrigins : false, methods: ['GET', 'POST'], allowedHeaders: ['Authorization', 'Content-Type'] })); app.use(express.json({ limit: '32kb' }));
+app.use((req, res, next) => { req.id = crypto.randomUUID(); res.setHeader('X-Request-Id', req.id); next(); });
+app.get('/health', (_, res) => res.json({ ok: true, mode: 'demo' }));
+app.use('/api/v1/auth', require('./routes/authRoutes'));
+app.use('/api/v1/user', require('./routes/userRoutes'));
+app.use('/api/v1/tasks', require('./routes/taskRoutes'));
+app.use('/api/v1/payments', require('./routes/paymentRoutes'));
+app.use('/api/v1/admin', require('./routes/adminRoutes'));
+app.use('/api/v1/payment-exceptions', require('./routes/exceptionRoutes'));
+const port = process.env.PORT || 4000; app.listen(port, () => console.log(`Demo API listening on ${port}`));

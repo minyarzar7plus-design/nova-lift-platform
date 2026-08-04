@@ -1,0 +1,1 @@
+export default function SupportBtn() { return <button className="fixed bottom-24 right-5 grid h-12 w-12 place-items-center rounded-full bg-navy text-xl text-white shadow-lg" aria-label="Support">?</button>; }

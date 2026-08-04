@@ -1,0 +1,1 @@
+export default function NoticeBox() { return <div className="mx-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800"><b>Demo notice</b><p className="mt-1 text-xs leading-5">Task listings are examples only. Do not transfer money or share financial credentials based on this prototype.</p></div>; }

@@ -1,0 +1,1 @@
+export default function CryptoAcc() { return <section className="card mx-4"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-full bg-emerald-100 text-emerald-600">₮</span><div><h3 className="font-bold">Digital assets</h3><p className="text-xs text-slate-400">USDT & BTC · unavailable in demo</p></div></div></section>; }

@@ -1,0 +1,1 @@
+export default function Marquee() { return <div className="mx-4 overflow-hidden rounded-xl bg-emerald-50 px-3 py-2 text-xs text-emerald-800"><span className="mr-2">✦</span>Demo environment — figures and activities shown here are sample data only.</div>; }

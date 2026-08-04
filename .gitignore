@@ -1,0 +1,18 @@
+# Dependencies and build output
+node_modules/
+.next/
+dist/
+coverage/
+
+# Local secrets and database files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.sqlite
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db

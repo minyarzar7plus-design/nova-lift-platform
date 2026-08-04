@@ -1,0 +1,1 @@
+export default function StatusTabs({ active, setActive }) { return <div className="mx-4 flex rounded-2xl bg-slate-100 p-1">{['All','Completed','Pending'].map(x=><button key={x} onClick={()=>setActive(x)} className={`flex-1 rounded-xl py-2 text-xs font-semibold ${active===x?'bg-white text-emerald-600 shadow-sm':'text-slate-500'}`}>{x}</button>)}</div>; }

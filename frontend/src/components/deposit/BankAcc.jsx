@@ -1,0 +1,1 @@
+export default function BankAcc() { return <section className="card mx-4"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-full bg-orange-100 text-orange-600">K</span><div><h3 className="font-bold">Bank transfer</h3><p className="text-xs text-slate-400">No payment account configured</p></div></div></section>; }

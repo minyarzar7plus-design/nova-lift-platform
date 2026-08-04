@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function Header() { return <header className="flex items-center justify-between px-5 py-5"><Link href="/app" className="text-xl font-black tracking-tight text-navy">nova<span className="text-mint">lift</span></Link><button className="grid h-10 w-10 place-items-center rounded-full bg-white text-lg shadow-soft" aria-label="Notifications">◔</button></header>; }

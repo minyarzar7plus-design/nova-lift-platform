@@ -1,0 +1,3 @@
+import Link from 'next/link'; import { useRouter } from 'next/router';
+const tabs = [['/app','⌂','Home'],['/balance','◉','Balance'],['/starting','↗','Tasks'],['/record','▤','Records'],['/my','☺','Profile']];
+export default function BottomNav() { const { pathname } = useRouter(); return <nav className="fixed bottom-0 left-1/2 z-10 flex w-full max-w-[480px] -translate-x-1/2 justify-around border-t border-slate-100 bg-white/95 px-1 py-2 backdrop-blur">{tabs.map(([href, icon, label]) => <Link href={href} key={href} className={`flex min-w-14 flex-col items-center gap-1 rounded-xl px-2 py-1 text-[10px] ${pathname === href ? 'font-bold text-emerald-600' : 'text-slate-400'}`}><span className="text-lg leading-none">{icon}</span>{label}</Link>)}</nav>; }

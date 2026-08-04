@@ -14,7 +14,7 @@ In Render, choose **New → Blueprint** and select the repository. Render reads 
 
 Set `CORS_ORIGINS` after the frontend domain exists, for example `https://app.example.mm`. Keep automatic deploy disabled until staging review is passed.
 
-After the Blueprint is ready, open `nova-lift-audit-db` in Render and use its **Connect** panel to copy the PSQL command. Run it from a terminal with the PostgreSQL client installed, then execute `\i backend/db/schema.sql` from the repository root. This initializes the account, order, support, approval, and append-only audit tables. Then load the 40-item starter catalog with `\i backend/db/seed_tasks.sql`.
+After the Blueprint is ready, open `nova-lift-audit-db` in Render and use its **Connect** panel to copy the PSQL command. Run it from a terminal with the PostgreSQL client installed, then execute `\i backend/db/schema.sql` from the repository root. This initializes the account, order, support, approval, and append-only audit tables. Then load the 40-item starter catalog with `\i backend/db/seed_tasks.sql`, or the 200-item VIP catalog (40 per VIP level) with `\i backend/db/seed_vip_tasks.sql`.
 
 ## 3. Deploy the mobile frontend to Vercel
 

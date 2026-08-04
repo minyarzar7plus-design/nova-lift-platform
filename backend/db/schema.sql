@@ -15,6 +15,7 @@ CREATE TABLE users (
   display_name TEXT NOT NULL CHECK (char_length(display_name) BETWEEN 2 AND 80),
   role user_role NOT NULL DEFAULT 'user',
   status user_status NOT NULL DEFAULT 'pending_verification',
+  membership_level SMALLINT NOT NULL DEFAULT 1 CHECK (membership_level BETWEEN 1 AND 5),
   email_verified_at TIMESTAMPTZ,
   referral_code TEXT NOT NULL UNIQUE,
   referred_by UUID REFERENCES users(id),
@@ -31,7 +32,7 @@ CREATE TABLE email_verification_tokens (
 
 CREATE TABLE tasks (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(), title TEXT NOT NULL, description TEXT NOT NULL,
-  category TEXT NOT NULL, estimated_minutes SMALLINT CHECK (estimated_minutes > 0),
+  category TEXT NOT NULL, membership_level SMALLINT NOT NULL DEFAULT 1 CHECK (membership_level BETWEEN 1 AND 5), estimated_minutes SMALLINT CHECK (estimated_minutes > 0),
   active BOOLEAN NOT NULL DEFAULT true, created_by UUID REFERENCES users(id), created_at TIMESTAMPTZ NOT NULL DEFAULT now(), updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 CREATE INDEX tasks_active_idx ON tasks(active, created_at DESC);

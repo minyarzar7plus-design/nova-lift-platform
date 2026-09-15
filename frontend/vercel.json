@@ -1,7 +1,5 @@
 {
   "framework": "nextjs",
-  "buildCommand": "next build",
-  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/(.*)",
